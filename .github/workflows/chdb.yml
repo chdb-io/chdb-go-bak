@@ -1,0 +1,35 @@
+name: chDB-go
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.8"
+    - name: Fetch library
+      run: |
+          apt update && apt install -y binutils
+          python3 -m pip install chdb
+          find /usr -name _chdb*.so
+          cp /usr/local/lib/python3.8/site-packages/chdb/_chdb.cpython-38-x86_64-linux-gnu.so /usr/lib/libchdb.so
+          strip /usr/lib/libchdb.so
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.21
+
+    - name: Build
+      run: go build -o chdbgo .
+
+    - name: Test
+      run: ./chdbgo
