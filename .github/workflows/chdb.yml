@@ -3,9 +3,11 @@ name: chDB-go
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - '**/.md'
+      - '**/.yml'
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
