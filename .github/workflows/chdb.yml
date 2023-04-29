@@ -22,12 +22,13 @@ jobs:
           sudo mv /opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/chdb/_chdb.cpython-37m-x86_64-linux-gnu.so /usr/lib/libchdb.so
           sudo strip /usr/lib/libchdb.so
     - name: Set up Go
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@v4
       with:
-        go-version: 1.20
+        go-version: 1.18
 
     - name: Build
       run: |
-          sudo cp -r ./chdb /opt/hostedtoolcache/go/1.2.2/x64/src/pkg/chdb
+          # sudo cp -r ./chdb /opt/hostedtoolcache/go/1.2.2/x64/src/pkg/chdb
+          go mod tidy
           go run main.go
 
