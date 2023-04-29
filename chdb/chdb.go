@@ -11,7 +11,7 @@ package chdb
 
 char *MyResult(char *query, char *format) {
 
-    char dataQuery[2048]; 
+    char dataQuery[4096]; 
     struct local_result *myresult;
     char * argv[] = {(char *)"clickhouse", (char *)"--multiquery", (char *)"--output-format=CSV", (char *)"--query="};
 
