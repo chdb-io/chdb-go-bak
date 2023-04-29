@@ -7,6 +7,12 @@
 
 ### Do not use this
 
+#### Example
 ```
 go build -o chdbgo .
+```
+```
+Query: SELECT version()
+Format: CSV
+Result: "22.12.1.1"
 ```
