@@ -1,7 +1,5 @@
 package chdb
 
-// #cgo CFLAGS: -I./ -I/use/include/python3.7
-
 /*
 #cgo pkg-config: python3
 #cgo CFLAGS: -I./
