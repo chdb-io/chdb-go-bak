@@ -28,8 +28,6 @@ jobs:
 
     - name: Build
       run: |
-          sudo mv chdb /opt/hostedtoolcache/go/1.2.2/x64/src/pkg/chdb
-          go build -o chdbgo main.go
+          sudo cp -r ./chdb /opt/hostedtoolcache/go/1.2.2/x64/src/pkg/chdb
+          go run main.go
 
-    - name: Test
-      run: ./chdbgo
