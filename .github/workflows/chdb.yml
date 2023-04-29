@@ -13,12 +13,12 @@ jobs:
     - name: Install python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.8"
+        python-version: "3.7"
     - name: Fetch library
       run: |
           sudo apt update && sudo apt install -y binutils
           python3 -m pip install chdb
-          sudo mv /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/chdb/_chdb.cpython-38-x86_64-linux-gnu.so /usr/lib/libchdb.so
+          sudo mv /opt/hostedtoolcache/Python/3.*/x64/lib/python3.8/site-packages/chdb/_chdb.cpython-37-x86_64-linux-gnu.so /usr/lib/libchdb.so
           sudo strip /usr/lib/libchdb.so
     - name: Set up Go
       uses: actions/setup-go@v3
