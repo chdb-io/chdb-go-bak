@@ -11,13 +11,17 @@
 
 - experimental, unstable, subject to changes
 - requires `libchdb.so` on the system _(see releases or action)_
+- requires `CGO` 
 
-#### Function
-```
-chdb.Query("SELECT version()", "CSV")
-```
-```
-Query: SELECT version()
-Format: CSV
-Result: "22.12.1.1"
+#### Example
+```go
+import (
+    "fmt"
+    "chdb"
+)
+
+func main() {
+    result := chdb.Query("SELECT version()", "CSV")
+    fmt.Println(result)
+}
 ```
