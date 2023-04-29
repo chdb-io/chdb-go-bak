@@ -1,8 +1,10 @@
 package chdb
 
+// #cgo CFLAGS: -I./ -I/use/include/python3.7
+
 /*
-#cgo CFLAGS: -I./ -I/use/include/python3.7
-#cgo LDFLAGS: -L. -lpython3.7m -lchdb
+#cgo pkg-config: python3
+#cgo LDFLAGS: -L. -lpython3.7 -lchdb
 #include "chdb.h"
 #include <string.h>
 #include <stdio.h>
