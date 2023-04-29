@@ -9,7 +9,8 @@
 
 ### Do not use this!
 
-- requires `libchdb.so` _(not included)_
+- experimental, unstable, subject to changes
+- requires `libchdb.so` on the system _(see releases or action)_
 
 #### Function
 ```
