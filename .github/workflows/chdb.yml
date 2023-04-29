@@ -19,7 +19,7 @@ jobs:
           sudo apt update && sudo apt install -y binutils
           python3 -m pip install chdb
           find /opt/hostedtoolcache/Python -name _chdb*.so
-          sudo mv /opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.8/site-packages/chdb/_chdb.cpython-37-x86_64-linux-gnu.so /usr/lib/libchdb.so
+          sudo mv /opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/chdb/_chdb.cpython-37m-x86_64-linux-gnu.so /usr/lib/libchdb.so
           sudo strip /usr/lib/libchdb.so
     - name: Set up Go
       uses: actions/setup-go@v3
