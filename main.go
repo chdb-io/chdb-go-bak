@@ -11,5 +11,5 @@ func main() {
     format := flag.String("format", "CSV", "Query output format")
     flag.Parse()
     result := chdb.Query(string(*query), string(*format))
-    fmt.Println("Result:", result)
+    fmt.Println(result)
 }
