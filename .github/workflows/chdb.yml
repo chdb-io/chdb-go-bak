@@ -16,7 +16,7 @@ jobs:
         python-version: "3.8"
     - name: Fetch library
       run: |
-          sudo apt update && apt install -y binutils
+          sudo apt update && sudo apt install -y binutils
           python3 -m pip install chdb
           find / -name _chdb*.so
           cp /usr/local/lib/python3.8/dist-packages/chdb/_chdb.cpython-38-x86_64-linux-gnu.so /usr/lib/libchdb.so
