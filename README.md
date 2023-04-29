@@ -9,7 +9,9 @@
 
 ### Do not use this!
 
-#### Example
+- requires `libchdb.so` _(not included)_
+
+#### Function
 ```
 chdb.Query("SELECT version()", "CSV")
 ```
