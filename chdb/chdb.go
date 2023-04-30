@@ -11,23 +11,33 @@ package chdb
 
 char *MyResult(char *query, char *format) {
 
-    char dataQuery[4096]; 
-    struct local_result *myresult;
     char * argv[] = {(char *)"clickhouse", (char *)"--multiquery", (char *)"--output-format=CSV", (char *)"--query="};
-
-    //Format
-    snprintf(dataQuery, sizeof(dataQuery), "--format=%s", format);
-    argv[2]=strdup(dataQuery);
-
-    //Query
-    snprintf(dataQuery, sizeof(dataQuery), "--query=%s", query);
-    argv[3]=strdup(dataQuery);
-
+    char dataFormat[100]; 
+    char *localQuery;
     //Total 4 = 3 arguments + 1 programm name
     int argc = 4;
+    struct local_result *myresult;    
 
+    //Format
+    snprintf(dataFormat, sizeof(dataFormat), "--format=%s", format);
+    argv[2]=strdup(dataFormat);
+
+    //Query - 10 characters + length of query
+    localQuery = (char *) malloc(strlen(query)+10);
+    if(localQuery == NULL) {
+    
+        printf("Out of memmory\n");
+        return NULL;
+    }
+    
+    sprintf(localQuery, "--query=%s", query);
+    argv[3]=strdup(localQuery);
+    free(localQuery);
+
+    //Main query and result
     myresult = query_stable(argc, argv);
 
+    //Free it
     free(argv[2]);
     free(argv[3]);
 
