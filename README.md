@@ -17,7 +17,7 @@
 ```go
 import (
     "fmt"
-    "chdb"
+    "github.com/chdb-io/chdb-go/chdb"
 )
 
 func main() {
