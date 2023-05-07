@@ -10,18 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Install python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.7"
     - name: Fetch library
       run: |
           sudo apt update && sudo apt install -y binutils
-          python3 -m pip install chdb
-          find /opt/hostedtoolcache/Python -name _chdb*.so
-          sudo mv /opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/chdb/_chdb.cpython-37m-x86_64-linux-gnu.so /usr/lib/libchdb.so
-          sudo strip /usr/lib/libchdb.so
-          sudo zip /tmp/libchdb.x86_64-linux-gnu.zip /usr/lib/libchdb.so
+          sudo wget https://github.com/metrico/libchdb/releases/download/0.7.0/libchdb_amd64.zip
+          sudo unzip libchdb_amd64.zip
+          sudo mv libchdb.so /usr/lib/libchdb.so
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
@@ -41,7 +35,7 @@ jobs:
       with:
         release_config: |
             chdbgo
-            /tmp/libchdb.x86_64-linux-gnu.zip
+            libchdb_amd64.zip
         tag_name: ${{ env.VERSION }}
         release_name: chdbgo_${{ env.VERSION }}
         draft: false
