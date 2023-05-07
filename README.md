@@ -7,7 +7,7 @@
 # chdb-go
 [chDB](https://github.com/auxten/chdb) go bindings for fun and hacking.
 
-### Do not use this!
+### Status
 
 - experimental, unstable, subject to changes
 - requires [`libchdb.so`](https://github.com/metrico/libchdb/releases) on the system
