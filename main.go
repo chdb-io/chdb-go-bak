@@ -2,8 +2,8 @@ package main
 
 import (
     "fmt"
-    "chdb"
     "flag"
+    "github.com/chdb-io/chdb-go/chdb"
 )
 
 func main() {
