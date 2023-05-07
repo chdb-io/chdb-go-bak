@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Fetch library
       run: |
-          sudo wget https://github.com/metrico/libchdb/releases/download/0.7.0/libchdb_amd64.zip
+          sudo wget https://github.com/metrico/libchdb/releases/latest/download/libchdb_amd64.zip
           sudo unzip libchdb_amd64.zip
           sudo mv libchdb.so /usr/lib/libchdb.so
     - name: Set up Go
@@ -22,7 +22,9 @@ jobs:
     - name: Build
       run: |
           go mod tidy
-          go build -o chdbgo main.go        
+          go build -o chdbgo main.go  
+    - name: Test
+      run: ./chdbgo
     - name: Get Version
       run: |
         echo "VERSION=${{  github.ref_name }}" >> $GITHUB_ENV
@@ -34,7 +36,6 @@ jobs:
       with:
         release_config: |
             chdbgo
-            libchdb_amd64.zip
         tag_name: ${{ env.VERSION }}
         release_name: chdbgo_${{ env.VERSION }}
         draft: false
