@@ -10,7 +10,7 @@
 ### Do not use this!
 
 - experimental, unstable, subject to changes
-- requires `libchdb.so` on the system _(see releases or action)_
+- requires [`libchdb.so`](https://github.com/metrico/libchdb/releases) on the system
 - requires `CGO` 
 
 #### Example
