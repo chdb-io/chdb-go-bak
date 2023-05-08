@@ -25,3 +25,7 @@ func main() {
     fmt.Println(result)
 }
 ```
+
+<br>
+
+:wave: _C/GO developer? Jump in and help us evolve this prototype into a stable module!_
