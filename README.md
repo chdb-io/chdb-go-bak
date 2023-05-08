@@ -15,6 +15,8 @@
 
 #### Example
 ```go
+package main
+
 import (
     "fmt"
     "github.com/chdb-io/chdb-go/chdb"
