@@ -12,7 +12,7 @@ func main() {
     path := flag.String("path", "", "Table persistence path")
     flag.Parse()
 
-    if (len(path) >= 1){
+    if (len(*path) > 0){
       result := chdb.Session(string(*query), string(*format), string(*path))
       fmt.Println(result)
     } else {
