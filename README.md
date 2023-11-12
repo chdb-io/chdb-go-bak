@@ -23,8 +23,14 @@ import (
 )
 
 func main() {
+    // Stateless Query (ephemeral)
     result := chdb.Query("SELECT version()", "CSV")
     fmt.Println(result)
+
+    // Stateful Query (persistent)
+    chdb.Session("CREATE FUNCTION IF NOT EXISTS hello AS () -> 'chDB'", "CSV", "/tmp")
+    hello := chdb.Session("SELECT hello()", "CSV", "/tmp")
+    fmt.Println(hello)
 }
 ```
 
