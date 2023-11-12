@@ -87,30 +87,30 @@ char *Session(char *query, char *format, char* path) {
 import "C"
 import "unsafe"
 
-func Query(str1 string, str2 string) string {
-	if str2 == "" {
-		str2 = "CSV"
+func Query(in_query string, in_format string) string {
+	if in_format == "" {
+		in_format = "CSV"
 	}
-	query := C.CString(str1)
+	query := C.CString(in_query)
 	defer C.free(unsafe.Pointer(query))
-	format := C.CString(str2)
+	format := C.CString(in_format)
 	defer C.free(unsafe.Pointer(format))
 	resultData := C.Execute(query, format)
 	return C.GoString(resultData)
 }
 
-func Session(str1 string, str2 string, str3 string) string {
-	if str3 == "" {
-		str3 = "/tmp/"
+func Session(in_query string, in_format string, in_path string) string {
+	if in_path == "" {
+		in_path = "/tmp/"
 	}
-	if str2 == "" {
-		str2 = "CSV"
+	if in_format == "" {
+		in_format = "CSV"
 	}
-	query := C.CString(str1)
+	query := C.CString(in_query)
 	defer C.free(unsafe.Pointer(query))
-	format := C.CString(str2)
+	format := C.CString(in_format)
 	defer C.free(unsafe.Pointer(format))
-	path := C.CString(str3)
+	path := C.CString(in_path)
 	defer C.free(unsafe.Pointer(path))
 	resultData := C.Session(query, format, path)
 	return C.GoString(resultData)
