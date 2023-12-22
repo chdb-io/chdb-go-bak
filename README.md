@@ -1,17 +1,18 @@
-<a href="https://chdb.fly.dev" target="_blank">
+<a href="https://chdb.io/" target="_blank">
   <img src="https://avatars.githubusercontent.com/u/132536224" width=130 />
 </a>
 
-[![chDB-go](https://github.com/metrico/chdb-go/actions/workflows/chdb.yml/badge.svg)](https://github.com/metrico/chdb-go/actions/workflows/chdb.yml)
-
 # chdb-go
-[chDB](https://github.com/auxten/chdb) go bindings for fun and hacking.
+[chDB](https://github.com/auxten/chdb) go bindings for chdb
 
 ### Status
-
-- experimental, unstable, subject to changes
-- requires [`libchdb`](https://github.com/metrico/libchdb) on the system
+- experimental
 - requires `CGO` 
+
+### Install
+1. download latest lib file from [chdb.io](https://github.com/chdb-io/chdb/releases/) which matchs your system
+2. put it in ./chdb path
+3. run: `go run main.go`, enjoy your go binding with chdb !
 
 #### Example
 ```go
@@ -35,5 +36,3 @@ func main() {
 ```
 
 <br>
-
-:wave: _C/GO developer? Jump in and help us evolve this prototype into a stable module!_

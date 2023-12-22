@@ -1,3 +1,7 @@
-module github.com/metrico/chdb-go
+module github.com/chdb-io/chdb-go/dev
 
-go 1.18
+require github.com/chdb-io/chdb-go/chdb v0.0.1
+
+replace github.com/chdb-io/chdb-go/chdb => ./chdb
+
+go 1.21
